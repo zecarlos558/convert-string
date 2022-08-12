@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Convert</title>
+    <!-- ========== Start Bootstrap Section ========== -->
+    <link href="bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ========== End Section ========== -->
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+
+</head>
+<body>
+    
+    <div class="container mt-5 ">
+        <div class="center-me mb-3">
+            <script>
+                const urlParams = new URLSearchParams(window.location.search);
+                const texto = urlParams.get('texto');
+            </script>
+            <p class="textoModal" id="textoModal"><script>document.write(texto);</script></p>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-primary" id="windowClose" onclick="windowClose()">Fechar Janela</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" id="copiarModal" onclick="copiarModal()">Copiar Texto</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

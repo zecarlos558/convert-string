@@ -1,0 +1,149 @@
+
+body, html {
+    height: 100%;
+    display: grid;
+}
+.center-me {
+    margin: auto;
+}
+
+#string_convert{
+    height: 225px;
+    overflow-y: scroll;
+    background: gainsboro;
+}
+
+#navbar{
+    text-align: center;
+    color: white;
+}
+
+/* Style editor de texto Bootstrap-WYSIWYG */
+#editor {
+    overflow:scroll; max-height:300px
+}
+
+
+/* Modo Dark - Contraste */
+
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+.dark-mode #navbvarMenu {
+    background-color: black;
+    color: white;
+}
+
+.dark-mode #navbvarMenu a {
+    font-size: 16px;
+    color: white;
+}
+
+.dark-mode #navbvarMenu a:hover {
+    color: pink;
+}
+
+.dark-mode #navbvarMenu .dropdown-menu {
+    background-color: black;
+    font-size: 18px;
+    color: white;
+}
+
+.dark-mode #navbvarMenu #navbarTogller {
+    background: white;
+    color: white;
+}
+
+.dark-mode .span {
+    background: white;
+    color: white;
+}
+
+.dark-mode #offcanvasMenuPrincipal {
+    background-color: black;
+    color: white;
+}
+
+.dark-mode #offcanvasMenuPrincipal a {
+    font-size: 18px;
+    color: white;
+}
+
+.dark-mode #offcanvasMenuPrincipal a:hover {
+    color: pink;
+}
+
+.dark-mode #offcanvasMenuPrincipal .dropdown-menu {
+    background-color: black;
+    font-size: 18px;
+    color: white;
+}
+
+.dark-mode #offcanvasMenuPrincipal #botaoCloseMenuCanvas {
+    background-color: white;
+    color: white;
+}
+
+.dark-mode #componentPanel{
+    background: white;
+    color: black;
+}
+
+.dark-mode .card-body {
+    background-color: black;
+    color: white;
+}
+
+.dark-mode #dashboardStyle {
+    background: black;
+    color: white;
+}
+
+.dark-mode #isa-container {
+    background: black;
+    color: white;
+}
+
+.dark-mode table {
+    background: black;
+    color: white;
+}
+
+.dark-mode thead {
+    background: white;
+    color: black;
+}
+
+.dark-mode tbody {
+
+    background: black;
+    color: white;
+}
+
+.dark-mode tbody {
+
+    background: black;
+    color: white;
+}
+
+.dark-mode .table-dark>tr:nth-child(odd)>th {
+    background: white;
+    color: black;/* Choose your own color here */
+}
+
+.dark-mode .table-hover>tbody>tr:nth-child(odd)>td,
+.dark-mode .table-hover>tbody>tr:nth-child(odd)>th {
+
+    background: black;
+    color: white;/* Choose your own color here */
+}
+
+.dark-mode .card-header {
+    background-color: black;
+    color: white;
+}
+
+/* Modo Dark - Contraste (FIM) */
+

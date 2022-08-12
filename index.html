@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert String</title>
+    <!-- ========== Start Bootstrap Section ========== -->
+    <link href="bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ========== End Section ========== -->
+
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+    <script type="text/javascript" src="js/node_modules/crypto-js/crypto-js.js"></script>
+
+    <!-- include summernote jquery-->
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- include summernote jquery-->
+
+    <!-- include summernote css/js-->
+    <link href="summernote-0.8.18-dist/summernote-bs4.css" rel="stylesheet">
+    <script src="summernote-0.8.18-dist/summernote-bs4.js"></script>
+    <!-- include summernote css/js-->
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://localhost/convert_string/editor_online.html">Editor Online</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0)">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0)">Link</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">
+                            <label for="texto">
+                                <h5>Funções String</h5>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label for="texto">
+                                <h5 id="length_text">Total Caracteres: 0</h5>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class=" mb-2 d-sm-block d-md-none d-lg-none">
+                            <div class="row">
+                                <div class="col">
+                                    <button class="btn btn-primary" id="uppercase" onclick="upperCase()">AA</button>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary" id="lowercase" onclick="lowerCase()">aa</button>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary" id="capitalize" onclick="capitalize()">
+                                        <ion-icon name="text-outline"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary" id="reverse" onclick="reverse()">
+                                        <ion-icon name="repeat-outline"></ion-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="center-me">
+                                <textarea class="form-control" name="texto" id="texto" cols="30" rows="8"
+                                    onkeyup="lengthText(this.value)"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-2  d-none d-sm-none d-md-block d-lg-block">
+                            <div class="mb-3">
+                                <button class="btn btn-primary" id="uppercase" onclick="upperCase()">Caixa Alta</button>
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-primary" id="lowercase" onclick="lowerCase()">Caixa
+                                    Baixa</button>
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-primary" id="capitalize"
+                                    onclick="capitalize()">Capitalizar</button>
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-primary" id="reverse" onclick="reverse()">Reverter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer text-muted">
+                    <div class="btn-group">
+                        <div class="">
+                            <button class="btn btn-primary" id="copiarTexto" onclick="copiarTexto()">Copiar
+                                Texto</button>
+                        </div>
+                        <div class="">
+                            <button class="btn btn-primary" id="clearFields" onclick="clearFields()">Limpar
+                                Texto</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="container mt-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Converter String</h5>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title mt-2 d-sm-block d-md-none d-lg-none">
+                        <div class="">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <button class="btn btn-primary" id="bold" onclick="bold()"><b>A</b></button>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-primary" id="italic" onclick="italic()"><i>A</i></button>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-primary" id="strike" onclick="strike()"><del>A</del></button>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="input-group">
+                                        <select class="form-control" name="encrypt_mobile" id="encrypt_mobile">
+                                            <option selected>Selecione</option>
+                                            <option value="md5">MD5</option>
+                                            <option value="sha1">SHA-1</option>
+                                            <option value="sha2">SHA-2</option>
+                                            <option value="sha3">SHA-3</option>
+                                            <option value="aes">AES</option>
+                                            <option value="des">DES</option>
+                                            <option value="3des">3DES</option>
+                                            <option value="rc4">RC4</option>
+                                        </select>
+                                        <button type="button" class="btn btn-primary" id="encrypt_button_mobile"
+                                            onclick="encrypt_texto_mobile()">Encriptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </h4>
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <div class="" id="string_convert">
+
+                            </div>
+                        </div>
+                        <div class="col-2 mt-2">
+                            <div class="mb-3 d-none d-sm-none d-md-block d-lg-block ">
+                                <button class="btn btn-primary" id="bold" onclick="bold()">Negrito</button>
+                            </div>
+                            <div class="mb-3 d-none d-sm-none d-md-block d-lg-block ">
+                                <button class="btn btn-primary" id="italic" onclick="italic()">Itálico</button>
+                            </div>
+                            <div class="mb-3 d-none d-sm-none d-md-block d-lg-block ">
+                                <button class="btn btn-primary" id="strike" onclick="strike()">Strike</button>
+                            </div>
+                            <div class="d-none d-sm-none d-md-block d-lg-block ">
+                                <div class="input-group">
+                                    <select class="form-control" name="encrypt" id="encrypt">
+                                        <option selected>Selecione</option>
+                                        <option value="md5">MD5</option>
+                                        <option value="sha1">SHA-1</option>
+                                        <option value="sha2">SHA-2</option>
+                                        <option value="sha3">SHA-3</option>
+                                        <option value="aes">AES</option>
+                                        <option value="des">DES</option>
+                                        <option value="3des">3DES</option>
+                                        <option value="rc4">RC4</option>
+                                    </select>
+                                    <button type="button" class="btn btn-primary" id="encrypt_button"
+                                        onclick="encrypt_texto()">Encriptar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+
+                    <button class="btn btn-primary" id="copiarDIV" onclick="copiar_string_convert()">Copiar
+                        Texto</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+    </div>
+    <!-- ========== Icons Ionicons ========== -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- ========== Icons Ionicons ========== -->
+
+
+</body>
+
+</html>
