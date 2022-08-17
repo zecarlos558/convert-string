@@ -1,15 +1,53 @@
+// Funções
+console.log("Está funcionando");
+
 // Variáveis Globais
 var data_atual = new Date();
 var arrayProduto = [];
 
 // Função editor de texto Summernote 
-$(document).ready(function() {
+$(document).ready(function () {
     $('#summernote').summernote();
-  });
+});
 
-// Funções
-console.log("Está funcionando");
+// Função para adicionar header e footer
+$(document).ready(function () {
+    $("#header").load("header.html");
+    $("#footer").load("footer.html");
+});
 
+// Função para adicionar editor Summernote
+function edit() {
+    $('.texto_editado').summernote({ focus: true });
+}
+
+// Função para salvar texto na div
+function save() {
+    var texto = $('#summernote').summernote('code');
+    document.getElementById("texto_editado").innerHTML = texto;
+    //$('.texto_editado').summernote('destroy');
+
+}
+
+// Função para copiar texto para div e área de transferência
+function copiar_editor() {
+    /* Selecionamos por ID o nosso input */
+    var textoCopiado = $('#summernote').summernote('code');
+    document.getElementById("texto_editado").innerHTML = textoCopiado;
+    copiarDIV("texto_editado");
+
+    /*
+    navigator.clipboard.writeText(textoCopiado).then(function() {
+        console.log('Async: Copying to clipboard was successful!');
+    }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+    });
+    */
+}
+
+
+
+// Função Modo Dark
 function darkMode() {
     var element = document.body;
     element.classList.toggle("dark-mode");
@@ -17,6 +55,7 @@ function darkMode() {
     elementHead.classList.toggle("dark-head");
 }
 
+// Função para exibir texto na div
 function url_convert(texto) {
     //Função para abrir popup
     /*
@@ -27,6 +66,7 @@ function url_convert(texto) {
     document.getElementById("string_convert").innerHTML = texto;
 };
 
+// Função para capturar texto da url
 function getParam() {
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('texto');
@@ -35,10 +75,11 @@ function getParam() {
     return texto;
 }
 
+// Função para exibir quantidade de caracteres
 function lengthText() {
     var texto = getText();
     var tamanho = texto.length;
-    document.getElementById("length_text").innerHTML = "Total Caracteres: "+tamanho;
+    document.getElementById("length_text").innerHTML = "Total Caracteres: " + tamanho;
 }
 
 // Setando o foco em um campo
@@ -54,7 +95,7 @@ function clearFields() {
     lengthText()
 }
 
-
+// Função para capturar texto do input
 function getText() {
     //var texto = document.querySelector("#texto").value;
     var texto = document.getElementById('texto').value;
@@ -62,23 +103,27 @@ function getText() {
     return texto;
 }
 
+// Função para Atualizar texto do input
 function update(texto) {
     document.querySelector("#texto").value = texto;
     //document.getElementById("texto").value = texto;
 }
 
+// Função de Caixa Alta
 function upperCase() {
     var texto = getText();
     texto = texto.toUpperCase();
     update(texto);
 }
 
+// Função de Caixa Baixa
 function lowerCase() {
     var texto = getText();
     texto = texto.toLowerCase();
     update(texto);
 }
 
+// Função de Capitalizar String
 function capitalize() {
     var texto = getText();
     const palavras = texto.split(" ");
@@ -89,30 +134,35 @@ function capitalize() {
     update(palavras.join(" "));
 }
 
+// Função de Negrito
 function bold() {
     var texto = getText();
     texto = texto.bold();
     url_convert(texto);
 }
 
+// Função de Itálico
 function italic() {
     var texto = getText();
     texto = texto.italics();
     url_convert(texto);
 }
 
+// Função de Riscado
 function strike() {
     var texto = getText();
     texto = texto.strike();
     url_convert(texto);
 }
 
+// Função de Inverter String
 function reverse() {
     var texto = getText();
     texto = texto.split("").reverse().join("");
     update(texto);
 }
 
+// Função de exibir texto criptografado
 function encrypt_texto() {
     var texto = getText();
     var select = document.getElementById("encrypt");
@@ -123,6 +173,7 @@ function encrypt_texto() {
 
 }
 
+// Função de exibir texto criptografado(mobile)
 function encrypt_texto_mobile() {
     var texto = getText();
     var select = document.getElementById("encrypt_mobile");
@@ -133,6 +184,7 @@ function encrypt_texto_mobile() {
 
 }
 
+// Função de criptografar texto
 function encrypt(opcao_encrypt, texto) {
     if (opcao_encrypt == 'md5') {
         var chave = CryptoJS.MD5(texto);
@@ -155,52 +207,56 @@ function encrypt(opcao_encrypt, texto) {
     return chave;
 }
 
+// Função para copiar texto do input para area de transferencia
 function copiarTexto() {
     /* Selecionamos por ID o nosso input */
     var textoCopiado = document.getElementById("texto");
-  
+
     /* Deixamos o texto selecionado (em azul) */
     textoCopiado.select();
     textoCopiado.setSelectionRange(0, 99999); /* Para mobile */
-  
+
     /* Copia o texto que está selecionado */
     document.execCommand("copy");
 }
 
+// Função para copiar texto do Modal para area de transferencia
 function copiarModal() {
     copiarDIV("textoModal")
 }
 
-function copiar_string_convert(params) {    
+// Função para copiar texto da div para area de transferencia
+function copiar_string_convert() {
     copiarDIV("string_convert")
 }
 
+// Função para copiar texto do input para area de transferencia
 function copiarDIV(id) {
     var element = document.getElementById(id);
     //console.log(element.children[1].innerHTML);
     //element = document.querySelector("#textoModal");
     if (document.body.createTextRange) {
-      const range = document.body.createTextRange();
-      range.moveToElementText(element);
-      range.select();
+        const range = document.body.createTextRange();
+        range.moveToElementText(element);
+        range.select();
     } else if (window.getSelection) {
-      const selection = window.getSelection();
-      const range = document.createRange();
-      range.selectNodeContents(element);
-      selection.removeAllRanges();
-      selection.addRange(range);
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(element);
+        selection.removeAllRanges();
+        selection.addRange(range);
     }
     document.execCommand('copy');
 }
 
-
+// Função para fechar modal
 function windowClose() {
     window.close();
 }
 
 // Retorna o mês com valor somado
-function add_mes(data, add, formato = 'dd/mm/yyyy'){
-	var arrData = data.split('-');
+function add_mes(data, add, formato = 'dd/mm/yyyy') {
+    var arrData = data.split('-');
     data = new Date(arrData[0], arrData[1] - 1, arrData[2]);
     data.setMonth(data.getMonth() + add)
     return data.toLocaleDateString();
