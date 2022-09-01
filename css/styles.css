@@ -13,9 +13,18 @@ body, html {
     background: gainsboro;
 }
 
-#navbar{
+.navbar{
     text-align: center;
+    background-color: black;
+}
+
+.navbar a {
     color: white;
+}
+
+.navbar .navbar-toggler {
+    color: white;
+    border: white;
 }
 
 /* Style editor de texto Bootstrap-WYSIWYG */

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas</title>
+
+    <!-- ========== Start Bootstrap Section ========== -->
+    <link href="bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <!-- ========== End Section ========== -->
+
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+
+    <!-- include jquery-->
+    <script type="text/javascript" src="jquery/jquery-3.6.0.min.js"></script>
+    <!-- include jquery-->
+</head>
+
+<body>
+<div id="header"></div>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="maiusculas" value="maiusculas" checked>
+                <label class="form-check-label" for="maiusculas">A-Z</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="minusculas" value="minusculas" checked>
+                <label class="form-check-label" for="minusculas">a-z</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="numeros" value="numeros" checked>
+                <label class="form-check-label" for="numeros">0-9</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="outros" value="outros" checked>
+                <label class="form-check-label" for="outros">Outros</label>
+              </div>
+        </div>
+        <div class="card-body">
+            <div class="container" >
+                <div class="row mb-3 d-flex justify-content-around">
+                    <div class="col-auto">
+                        <label for="tamanho_texto">Tamanho</label>
+                        <input class="form-control" type="number" name="tamanho_texto" id="tamanho_texto" min="0" max="90" value="8">
+                    </div>
+                    <div class="col-auto">
+                        <br>
+                        <button class="btn btn-primary" id="copiarTexto" onclick="gerarTexto()">Gerar Senha</button>
+                    </div>                    
+                </div>
+                <label for="texto">Senha</label>
+                <input class="form-control" type="text" name="texto" id="texto" readonly>
+            </div>   
+        </div>
+        <div class="card-footer text-muted">
+            <div class="btn-group">
+                <div class="">
+                    <button class="btn btn-primary" id="copiarTexto" onclick="copiarTexto()">Copiar
+                        Texto</button>
+                </div>
+                <div class="">
+                    <button class="btn btn-primary" id="clearFields" onclick="clearFields()">Limpar
+                        Texto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- ========== Icons Ionicons ========== -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- ========== Icons Ionicons ========== -->
+</body>
+
+</html>

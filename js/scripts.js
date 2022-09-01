@@ -249,6 +249,61 @@ function copiarDIV(id) {
     document.execCommand('copy');
 }
 
+function gerarTexto() {
+
+    var opcoes = new Map();
+    
+    var minusculas=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","u","v","w","x","y","z"];
+    var maiusculas=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","U","V","W","X","Y","Z"];
+    var numeros=["0","1","2","3","4","5","6","7","8","9"];
+    var outros = ["!","@","#","$","%","^","&"];
+
+    opcoes.set('minusculas', minusculas);
+    opcoes.set('maiusculas', maiusculas);
+    opcoes.set('numeros', numeros);
+    opcoes.set('outros', outros);
+
+    var tamanho_texto = document.getElementById('tamanho_texto').value;
+    var elemento_maiuscula = document.getElementById('maiusculas');
+    var elemento_minusculas = document.getElementById('minusculas');
+    var elemento_numeros = document.getElementById('numeros');
+    var elemento_outros = document.getElementById('outros');
+
+    if (elemento_maiuscula.checked == false) {
+        opcoes.delete('maiusculas');
+    }
+    if (elemento_minusculas.checked == false) {
+        opcoes.delete('minusculas');
+    }
+    if (elemento_numeros.checked == false) {
+        opcoes.delete('numeros');
+    }
+    if (elemento_outros.checked == false) {
+        opcoes.delete('outros');
+    }
+
+    i = 0;
+    opcoes_array = [];
+    for (const x of opcoes.values()) {
+        opcoes_array[i] = x;
+        i = i + 1;
+    }
+
+    if (opcoes_array.length > 0) {
+        var texto = "";
+        var opcao = Math.floor(Math.random() * opcoes_array.length);
+        for (let index = 0; index < tamanho_texto; index++) {
+            var indice_opcoes = Math.floor(Math.random() * opcoes_array.length);
+            opcao = opcoes_array[indice_opcoes];
+            var indice_opcao = Math.floor(Math.random() * opcao.length);
+            var elemento = opcao[indice_opcao];
+            texto = texto + elemento;
+        }
+        update(texto);
+    }
+    
+}
+
 // Função para fechar modal
 function windowClose() {
     window.close();
