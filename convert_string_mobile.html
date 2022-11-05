@@ -1,0 +1,99 @@
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col">
+                <label for="texto">
+                    <h5>Funções String</h5>
+                </label>
+            </div>
+            <div class="col">
+                <label for="texto">
+                    <h5 id="length_text">Total Caracteres: 0</h5>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary" id="uppercase" onclick="upperCase()">AA</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" id="lowercase" onclick="lowerCase()">aa</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" id="capitalize" onclick="capitalize()">
+                        <ion-icon name="text-outline"></ion-icon>
+                    </button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" id="reverse" onclick="reverse()">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="center-me">
+            <textarea class="form-control" name="texto" id="texto" cols="30" rows="8"
+                onkeyup="lengthText(this.value)"></textarea>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        <div class="btn-group">
+            <div class="">
+                <button class="btn btn-primary" id="copiarTexto" onclick="copiarTexto()">Copiar
+                    Texto</button>
+            </div>
+            <div class="">
+                <button class="btn btn-secondary" id="clearFields" onclick="clearFields()">Limpar
+                    Texto</button>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="card">
+    <div class="card-header">
+        <h5>Converter String</h5>
+    </div>
+    <div class="card-body">
+        <div class="">
+            <div class="mb-3 row">
+                <div class="col-auto">
+                    <button class="btn btn-primary" id="bold" onclick="bold()"><b>A</b></button>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-primary" id="italic" onclick="italic()"><i>A</i></button>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-primary" id="strike" onclick="strike()"><del>A</del></button>
+                </div>
+                <div class="col-auto">
+                    <div class="input-group">
+                        <select class="form-control" name="encrypt_mobile" id="encrypt_mobile">
+                            <option selected></option>
+                            <option value="md5">MD5</option>
+                            <option value="sha1">SHA-1</option>
+                            <option value="sha2">SHA-2</option>
+                            <option value="sha3">SHA-3</option>
+                            <option value="aes">AES</option>
+                            <option value="des">DES</option>
+                            <option value="3des">3DES</option>
+                            <option value="rc4">RC4</option>
+                        </select>
+                        <button type="button" class="btn btn-primary" id="encrypt_button_mobile"
+                            onclick="encrypt_texto_mobile()">Encriptar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="" id="string_convert">
+
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        <button class="btn btn-primary" id="copiarDIV" onclick="copiar_string_convert()">Copiar
+            Texto</button>
+    </div>
+</div>

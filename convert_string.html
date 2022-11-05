@@ -1,0 +1,101 @@
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col">
+                <label for="texto">
+                    <h5>Funções String</h5>
+                </label>
+            </div>
+            <div class="col">
+                <label for="texto">
+                    <h5 id="length_text">Total Caracteres: 0</h5>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">                        
+            <div class="col-sm-10">
+                <div class="center-me">
+                    <textarea class="form-control" name="texto" id="texto" cols="30" rows="8"
+                        onkeyup="lengthText(this.value)"></textarea>
+                </div>
+            </div>
+            <div class="col-sm-2 d-none d-sm-none d-md-block d-lg-block">
+                <div class="mb-3">
+                    <button class="btn btn-primary" id="uppercase" onclick="upperCase()">Caixa Alta</button>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary" id="lowercase" onclick="lowerCase()">Caixa
+                        Baixa</button>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary" id="capitalize"
+                        onclick="capitalize()">Capitalizar</button>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary" id="reverse" onclick="reverse()">Reverter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        <div class="btn-group">
+            <div class="">
+                <button class="btn btn-primary" id="copiarTexto" onclick="copiarTexto()">Copiar
+                    Texto</button>
+            </div>
+            <div class="">
+                <button class="btn btn-secondary" id="clearFields" onclick="clearFields()">Limpar
+                    Texto</button>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="card">
+    <div class="card-header">
+        <h5>Converter String</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="" id="string_convert">
+
+                </div>
+            </div>
+            <div class="col-2 mt-2">
+                <div class="mb-3 d-none d-sm-none d-md-block d-lg-block ">
+                    <button class="btn btn-primary" id="bold" onclick="bold()">Negrito</button>
+                </div>
+                <div class="mb-3 d-none d-sm-none d-md-block d-lg-block ">
+                    <button class="btn btn-primary" id="italic" onclick="italic()">Itálico</button>
+                </div>
+                <div class="mb-3 d-none d-sm-none d-md-block d-lg-block ">
+                    <button class="btn btn-primary" id="strike" onclick="strike()">Strike</button>
+                </div>
+                <div class="d-none d-sm-none d-md-block d-lg-block ">
+                    <div class="input-group">
+                        <select class="form-control" name="encrypt" id="encrypt">
+                            <option selected>Selecione</option>
+                            <option value="md5">MD5</option>
+                            <option value="sha1">SHA-1</option>
+                            <option value="sha2">SHA-2</option>
+                            <option value="sha3">SHA-3</option>
+                            <option value="aes">AES</option>
+                            <option value="des">DES</option>
+                            <option value="3des">3DES</option>
+                            <option value="rc4">RC4</option>
+                        </select>
+                        <button type="button" class="btn btn-primary" id="encrypt_button"
+                            onclick="encrypt_texto()">Encriptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        <button class="btn btn-primary" id="copiarDIV" onclick="copiar_string_convert()">Copiar
+            Texto</button>
+    </div>
+</div>

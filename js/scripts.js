@@ -1,9 +1,11 @@
 // Funções
 console.log("Está funcionando");
+console.log(window.location.host)
 
 // Variáveis Globais
 var data_atual = new Date();
 var arrayProduto = [];
+var url = "http://localhost/convert_string";
 
 // Função editor de texto Summernote 
 $(document).ready(function () {
@@ -14,7 +16,28 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#header").load("header.html");
     $("#footer").load("footer.html");
+    if (checkDevice() == true) {
+        $("#corpo").load("convert_string_mobile.html");
+    } else {
+        $("#corpo").load("convert_string.html");
+    }
 });
+
+function checkDevice() {
+    if( navigator.userAgent.match(/Android/i)
+    || navigator.userAgent.match(/webOS/i)
+    || navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    || navigator.userAgent.match(/BlackBerry/i)
+    || navigator.userAgent.match(/Windows Phone/i)
+    ){
+       return true; // está utilizando celular
+     }
+    else {
+       return false; // não é celular
+     }
+}
 
 // Função para adicionar editor Summernote
 function edit() {
@@ -45,8 +68,6 @@ function copiar_editor() {
     */
 }
 
-
-
 // Função Modo Dark
 function darkMode() {
     var element = document.body;
@@ -62,7 +83,6 @@ function url_convert(texto) {
     var url = "http://localhost/convert_string/string_convert.html?texto="+texto;
     var myWindow = window.open(url, "string_italic", "popup");
     */
-
     document.getElementById("string_convert").innerHTML = texto;
 };
 
